@@ -4,7 +4,6 @@ namespace AmirVahedix\Tipax;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use AmirVahedix\Tipax\Commands\TipaxCommand;
 
 class TipaxServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +16,6 @@ class TipaxServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-tipax')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel_tipax_table')
-            ->hasCommand(TipaxCommand::class);
+            ->hasConfigFile();
     }
 }
