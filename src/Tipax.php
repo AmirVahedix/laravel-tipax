@@ -11,12 +11,6 @@ use Illuminate\Support\Facades\Http;
 class Tipax
 {
     /**
-     * @param  int  $origin
-     * @param  int  $destination
-     * @param  float  $weight
-     *
-     * @return float|int
-     *
      * @throws ConnectionException
      * @throws TipaxAuthException
      * @throws TipaxException
@@ -53,15 +47,15 @@ class Tipax
         $response = Http::post(
             'https://omtestapi.tipax.ir/api/OM/v3/Account/token',
             [
-                'username' => config('services.tipax.username'),
-                'password' => config('services.tipax.password'),
-                'apiKey' => config('services.tipax.apiKey'),
+                'username' => config('tipax.username'),
+                'password' => config('tipax.password'),
+                'apiKey' => config('tipax.apiKey'),
             ]
         );
 
         if (! $response->successful()) {
             info('-------TIPAX-------'.$response->json());
-            throw new TipaxAuthException($response->json());
+            throw new TipaxAuthException();
         }
 
         return 'Bearer '.$response->json()['accessToken'];

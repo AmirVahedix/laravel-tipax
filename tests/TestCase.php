@@ -2,9 +2,9 @@
 
 namespace AmirVahedix\Tipax\Tests;
 
+use AmirVahedix\Tipax\TipaxServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use AmirVahedix\Tipax\TipaxServiceProvider;
 
 class TestCase extends Orchestra
 {
