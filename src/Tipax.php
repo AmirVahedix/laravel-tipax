@@ -55,7 +55,7 @@ class Tipax
 
         if (! $response->successful()) {
             info('-------TIPAX-------'.$response->json());
-            throw new TipaxAuthException();
+            throw new TipaxAuthException;
         }
 
         return 'Bearer '.$response->json()['accessToken'];
